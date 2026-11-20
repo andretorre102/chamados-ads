@@ -4,7 +4,7 @@ Projeto desenvolvido de forma incremental para a disciplina de **Programação W
 
 O objetivo do projeto será construir uma **API RESTful em Python** para gerenciamento de chamados de suporte técnico (estilo helpdesk), permitindo a abertura, acompanhamento, atribuição e resolução de solicitações de atendimento.
 
-A cada semana da disciplina, iremos incrementar o projeto, com a criação de novas rotas, a geração de interface web com o uso do Flasgger para testar os endpoints e ajudar na elaboração da documentação, especificamente da forma como se segue:
+A cada semana da disciplina, iremos incrementar o projeto, com a criação de novas rotas, a geração de interface web com o uso do [Flasgger](https://github.com/flasgger/flasgger) para testar os endpoints e ajudar na elaboração da documentação, especificamente da forma como se segue:
 
 #### Semana 1: ✅
 Criar API em Python com GET /, repositório GitHub e README.md (Prazo: 23/11/2026).
