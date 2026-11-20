@@ -77,7 +77,7 @@ uv run flask run
 
 Em seguida, confira o servidor iniciando no navegador, inserindo:
 
-**`http:\\localhost:5000`**
+**`localhost:5000`**
 
 ---
 
