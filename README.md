@@ -20,6 +20,11 @@ Criar API em Python com GET /, repositório GitHub e README.md (Prazo: 23/11/202
 
 #### Semana 2: 
 Implementar cadastro, listagem e consulta por ID de chamados em memória (Prazo: 30/11/2026).
+> **Status da Entrega**: **Etapa 2 (Implementação de rotas)**  
+> Na etapa, a API foi expandida com a implementação de rotas para cadastro de chamadas ```POST /chamados``` que gera ID, status: "aberto" retorna HTTP 201.
+> A listagem de chamadas foi realizada com o uso do decorador ```GET /chamados```, que retorna uma lista, ou lista vazia (quando vazio) e HTTP 200.
+> Para consulta por ID de chamado, usou-se o decorador ```GET /chamados/<id>``` retornando HTTP 200 (se existe) e HTTP 404 (se não existe).
+> O armazenamento é em memória, permitindo múltiplos chamados.
 
 #### Semana 3: 
 Completar o CRUD em memória e conferir respostas HTTP (Prazo: 07/12/2026).
@@ -86,22 +91,49 @@ uv run flask --app app run --host=0.0.0.0 --port=5000
 
 ## Endpoints Disponíveis
 
-### Rota Raiz (Verificação de Status)
-
-| Método | Endpoint | Descrição | Retorno de Sucesso (`200 OK`) |
+| Método | Endpoint | Descrição | Retorno de Sucesso |
 | :---: | :---: | :--- | :--- |
-| `GET` | `/` | Retorna o status de funcionamento da API de chamados | `{"mensagem": "API de chamados em funcionamento"}` |
+| `GET` | `/` | Retorna o status de funcionamento da API de chamados | `200 OK` |
+| `POST` | `/chamados` | Cadastra um novo chamado | `201 Created` |
+| `GET` | `/chamados` | Lista todos os chamados cadastrados | `200 OK` |
+| `GET` | `/chamados/<id>` | Consulta um chamado específico por seu ID | `200 OK` |
 
-#### Como testar a rota:
-Via navegador acessando `http://localhost:5000/`, ou pelo terminal:
+---
+
+### Exemplos de Requisições e Testes (Etapa 2) - Com uso da extensão Postman no VS Code
+
+#### 1. Verificação de Status da API
+Via navegador ou terminal:
 ```bash
 curl -i http://localhost:5000/
 ```
-
-#### Resposta JSON esperada:
+**Resposta esperada (`200 OK`):**
 ```json
 {
   "mensagem": "API de chamados em funcionamento"
+}
+
+```
+**Postman:**
+
+![Verificação inicial no Postman](screenshots/1_verificacao_inicial.jpg)
+
+#### 2. Cadastrar Novo Chamado
+
+![Inclusão de chamados](screenshots/2_inclusao_chamado.jpg)
+
+#### 3. Listar Todos os Chamados
+
+![Listagem dos Chamados](screenshots/3_listagem.jpg)
+
+#### 4. Consultar Chamado por ID
+
+![Consulta Chamados por ID](screenshots/4_consulta_chamados_por_id.jpg)
+
+**Caso o ID não exista (`404 Not Found`):**
+```json
+{
+  "mensagem": "Chamado não encontrado"
 }
 ```
 

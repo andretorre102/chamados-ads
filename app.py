@@ -27,23 +27,24 @@ def create_chamado():
 
     chamado = request.json
     chamado["id"] = proximo_id
+    chamado["status"] = "aberto"
     chamados.append(chamado)
     proximo_id += 1
     return chamado, 201
 
-@app.get("/chamados/")
+@app.get("/chamados")
 def get_chamados():
     ''' Rota para obter todos os chamados'''
     global chamados
     return chamados
 
-@app.get("/chamado/<int:chamado_id>")
+@app.get("/chamados/<int:chamado_id>")
 def get_chamado_by_id(chamado_id):
     ''' Retorna o chamado que tem id == chamado_id '''
     for chamado in chamados:
         if chamado["id"] == chamado_id:
             return chamado, 200
         
-    return {"message": "Chamado não encontrado"}, 404   
+    return {"mensagem": "Chamado não encontrado"}, 404   
 
 
